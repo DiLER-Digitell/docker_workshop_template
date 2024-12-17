@@ -16,7 +16,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'docker_workshop'
+project = 'docker workshop'
 copyright = '2024, Aaron Reer, Michael Ernst'
 author = 'Aaron Reer, Michael Ernst'
 
