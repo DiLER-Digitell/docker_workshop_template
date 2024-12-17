@@ -16,7 +16,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'MEGqc User documentation'
+project = 'docker_workshop'
 copyright = '2024, Aaron Reer, Michael Ernst'
 author = 'Aaron Reer, Michael Ernst'
 
