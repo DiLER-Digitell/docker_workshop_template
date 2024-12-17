@@ -2,6 +2,7 @@
 
 # Welcome!
 
+
 Hello everyone and welcome to the "Docker for Neuroscience" workshop conducted at Oldenburg University, we're glad to see you here!
 
 Within these pages, we provide information on how to follow do the basic setup for the workshop, This [jupyter book](https://jupyterbook.org/intro.html) will include all necessary info. Simply follow this link to the website: https://diler-digitell.github.io/docker_workshop_setup/
