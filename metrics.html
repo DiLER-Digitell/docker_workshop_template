@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MEGqc report overview &#8212; MEGqc tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metrics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Practical Guide to MEGqc" href="guide.html" />
+    <link rel="prev" title="Introduction to MEGqc" href="introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/MEGqc.png" class="logo__image only-light" alt="MEGqc tutorial - Home"/>
+    <img src="_static/MEGqc.png" class="logo__image only-dark pst-js-only" alt="MEGqc tutorial - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to MEGqc</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MEGqc report overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="guide.html">Practical Guide to MEGqc</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/installation.html">Installation of MEGqc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/dataset.html">How to download a dataset from OpenNeuro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/run_calculation.html">Running MEGqc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/run_plotting.html">Running the plotting module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="details.html">Pipeline basics</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/AaronReer/docker_workshop_setup" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/AaronReer/docker_workshop_setup/edit/main/workshop/metrics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/AaronReer/docker_workshop_setup/issues/new?title=Issue%20on%20page%20%2Fmetrics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/metrics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MEGqc report overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-information">Raw Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensor-positions">Sensor Positions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-of-the-data">Standard deviation of the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-over-the-entire-time-series">1. Standard Deviation over the entire time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-over-sensors">2. standard Deviation over Sensors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-over-epochs">3. Standard Deviation over Epochs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-spectrum-density">Power Spectrum Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-to-peak-amplitude">Peak to Peak Amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecg-heart-beat-interference">ECG: heart beat interference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eog-eye-movement-interference">EOG: eye movement interference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-frequency-muscle-artifacts">High frequency (Muscle) artifacts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-of-subjet-s-head-movement">Estimation of subjet’s head movement</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="megqc-report-overview">
+<h1>MEGqc report overview<a class="headerlink" href="#megqc-report-overview" title="Link to this heading">#</a></h1>
+<p>Every metric in MEGqc generates its own HTML report. In this section, we will provide an overview of these reports. These figures are interactive: you can zoom in and out, reveal legends on hovering, hide or show specific epochs or channels… While this tutorial primarly uses screenshots, we’ve included some GIFs to demonstrate the interactive capabilities of the figures.</p>
+<p>The examples in this section are taken from the report of the subject 009 from the  <em>ds003483</em> dataset available on OpenNeuro. This same dataset was used by Gaponsertva (2023) to evaluate the MEGqc tool. In the Practical Guide you’ll learn how to <a class="reference internal" href="guide/dataset.html"><span class="std std-doc">download this same dataset</span></a>, so you can recreate these same reports yourself.</p>
+<section id="raw-information">
+<h2>Raw Information<a class="headerlink" href="#raw-information" title="Link to this heading">#</a></h2>
+<p>The report starts with metadata about the original raw file, before filtering and resampling. This metadata includes some general information (date, experimenter…), some channels’ information (more on that later), and some data information (sampling frequency, applied filters…).</p>
+<p><img alt="Raw Info" src="_images/00" /></p>
+</section>
+<section id="sensor-positions">
+<h2>Sensor Positions<a class="headerlink" href="#sensor-positions" title="Link to this heading">#</a></h2>
+<p><img alt="Sensor distribution" src="_images/01" /></p>
+<p>Almost every report starts with this visual representation of the spatial distribution of MEG sensors on the subject’s head. The sensors are divided into eight color-coded groups representing different lobes. This same color coding will be used frequently throughout the reports for reference.</p>
+<ol class="arabic simple">
+<li><p><strong>Rotate the figure</strong>
+By clicking and holding the mouse left-button while dragging, you can rotate the sensor positions figure to view it from different angles.</p></li>
+</ol>
+<p>![rotation]](static/gifs/01_sensor_location/01_rotation.gif)</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Hide and reveal sensors</strong>
+By clicking on the legend block, you can hide the sensors of a specific lobe. Clicking the block again will make the sensors reappear.</p></li>
+</ol>
+<p>![hide]](static/gifs/01_sensor_location/02_hide.gif)</p>
+<p>There are 2 different types of meters in MEG sensors: <strong>Magnetometers</strong> and <strong>Gradiometers</strong>. Each sensor might contain one type of meter or both. The sensor labels help you distinguish between them:</p>
+<ul class="simple">
+<li><p><strong>Magnetometer:</strong> it measures the magnetic field directly, providing data on its strength and direction. It is more sensitive to distant source, making it more vulnerable to external magnetic noise. Its label ends with <em>“1”</em> (e.g., <em>MEG1011</em> ).</p></li>
+<li><p>Gradiometers: These sensors come in pairs and they measure the gradient of the magentic field, so the difference between 2 measurements. This setup helps filter out environemntal noise. Their labels end with <em>“2”</em> and <em>“3”</em> indicating the two Gradiometers in a specific sensor (e.g. <em>MEG0112</em> and <em>MEG0113</em>).</p></li>
+</ul>
+<p>The sensor labels appear when you hover over a  sensor dot. Alternatively, you can enable <em>“Always show channels names”</em> option, which keeps all labels visible. Enabling this feature might take some time to render, specially if all lobes are visible.</p>
+<p>![hide]](static/gifs/01_sensor_location/03_labels.gif)</p>
+</section>
+<section id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Link to this heading">#</a></h2>
+<p>Each report might include two sets of results: one for the Magnetometers and another set for the Gradiometers. This tutorial focuses on Magnetometers, but the Gradiometers results follow the same logic.</p>
+<section id="standard-deviation-of-the-data">
+<h3>Standard deviation of the data<a class="headerlink" href="#standard-deviation-of-the-data" title="Link to this heading">#</a></h3>
+<p>The Standard Deviation (STD) metric measures the variability of each channel. Channels with unusual high or low STD compared to others, might indicate potential malfunctions (Gapontseva, 2023).</p>
+<section id="standard-deviation-over-the-entire-time-series">
+<h4>1. Standard Deviation over the entire time series<a class="headerlink" href="#standard-deviation-over-the-entire-time-series" title="Link to this heading">#</a></h4>
+<p>In the first figure, each dot represents the standard deviation of a Magnetometer channel over <strong>the entire time series</strong>.</p>
+<p><img alt="STD over the entire time series" src="_images/011" /></p>
+<ul class="simple">
+<li><p>The sensors are colored according to the regions of the Sensor Distribution plot.</p></li>
+<li><p>The position of the points on the Y axis are not meaningful, they are just for visualization purposes.</p></li>
+</ul>
+<p>Interactive features:</p>
+<ul class="simple">
+<li><p>Hovering over a dot reveals the standard deviation value of a specific sensor and the sensor label (e.g. 3.62e-13 | <em>MEG1741</em>). - Hovering over the blue square gives you the value of:</p>
+<ul>
+<li><p>The highest and lowest edge values of the boxplot’s whisker: any data point outside that range is flagged as <strong>noisy</strong> or <strong>flat</strong>, indicating a potential outlier.</p></li>
+<li><p>The first quartile (Q1) and the third quartile (Q3), which represents the 25th and 75th percentile of the data.</p></li>
+<li><p>The media (50th percentile) value of the dataset.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="STD labels" src="static/gif/02_std/01_labels.gif" /></p>
+<ul class="simple">
+<li><p>Clicking on the legend box allows you to hide or reveal sensors of a specific lobe.</p></li>
+</ul>
+<p><img alt="STD hide" src="static/gif/02_std/02_hide.gif" /></p>
+<ul class="simple">
+<li><p>Clicking, holding and dragging the left mouse button over a section of the figure allows to you zoom in. The home button restores the default view.</p></li>
+</ul>
+<p><img alt="STD zoom" src="static/gif/02_std/03_zoom.gif" /></p>
+</section>
+<section id="standard-deviation-over-sensors">
+<h4>2. standard Deviation over Sensors<a class="headerlink" href="#standard-deviation-over-sensors" title="Link to this heading">#</a></h4>
+<p>Each box plot corresponds to a sensor, and each point represents the standard deviation for that sensor during an individual epoch.</p>
+<p><img alt="STD per channel" src="_images/02.png" /></p>
+<p>Epochs are created by segmenting the continuous MEG recording basend on triggers in the dataset. By hovering over any of the points, users can read the specific epoch represented. Sensors with points outside the whiskers indicate higher variability, potential artifacts, or irregularities in specific epochs.</p>
+<p>Interactive features:</p>
+<ol class="arabic simple">
+<li><p>Selecting lobes</p></li>
+</ol>
+<ul class="simple">
+<li><p>Clickin once on a legend block hides a group of sensors.</p></li>
+<li><p>Clicking again reveals the previously hidden sensors.</p></li>
+<li><p>Clicking twice isolates that group.</p></li>
+</ul>
+<p><img alt="STD hide" src="static/gif/02_std/04_sections.gif" /></p>
+<ol class="arabic simple" start="2">
+<li><p>Scrolling through lobes</p></li>
+</ol>
+<ul class="simple">
+<li><p>Rich-click and drag on the horizontal bar to scroll though the sensors, enabling a more detailed view. This feature might be a bit slow when many sensors are displayed simultaneously.</p></li>
+</ul>
+<p><img alt="STD scroll" src="static/gif/02_std/05_scroll.gif" /></p>
+<ul class="simple">
+<li><p>For example, the following figure shows 6 sensors from the Left Frontal area.</p></li>
+</ul>
+<p><img alt="STD per channel" src="_images/03" /></p>
+</section>
+<section id="standard-deviation-over-epochs">
+<h4>3. Standard Deviation over Epochs<a class="headerlink" href="#standard-deviation-over-epochs" title="Link to this heading">#</a></h4>
+<p>Each box plot represents a single epoch, and each dot the standard deviation value for every specific sensor during that epoch. The sensors are color coded.<br />
+This type of figure is most relevant for experiments with relevant time events.</p>
+<p><img alt="STD over the epochs4" src="_images/04" /></p>
+<ul class="simple">
+<li><p>To zoom in, use the horizontal bar at the bottom to zoom in on a subset of sensors. This visualization helps to visually focus on a subsets of epochs.</p></li>
+</ul>
+<p><img alt="STD over the epochs5" src="_images/05" /></p>
+<ul class="simple">
+<li><p>Hovering over with the mouse, the value and label of every sensor appears, along with the interquartile range values.</p></li>
+</ul>
+<p><img alt="STD scroll" src="static/gif/02_std/06_labels.gif" /></p>
+</section>
+</section>
+<section id="power-spectrum-density">
+<h3>Power Spectrum Density<a class="headerlink" href="#power-spectrum-density" title="Link to this heading">#</a></h3>
+<p>The Power Spectrum Density describes how the power of a signal is distributed across different frequencies. It provides information on the strength or intensity of different frequency components. PSD calculation helps us to distinguish between brain activity and non-brain-related noise (Gapontseva, 2023).</p>
+<p><img alt="pic1" src="_images/01.png" /><br />
+<img alt="pic2" src="_images/021.png" /></p>
+<p>This circle chart represents the Signal-to-Noise Ratio (SNR). A high SNR indicates minimal corruption of the signal of interest by background noise. The prominent amplitude of the 11.5 Hz frequency labels it as potential noise.</p>
+<p><img alt="pic3" src="_images/031" /></p>
+<p>The Welch periodrogram is commonly used to estimate the power of a signal at different frequency components.<br />
+The X-axis represents the frequency range of the signal (from 0 to 140 Hz in this case) and the Y-axis represents the amplitude of the signal.
+Each colored line represents the PSD for the different magnetometers. As it was previously reported, there’s a visible peak at 11.5 Hz in this example.</p>
+<p>Interactive features in the HTML report allow toggling between linear a <strong>linear</strong> view or a <strong>logarithmic</strong> view of both the X-axis and the Y-axis independently.</p>
+<p><img alt="log" src="_images/01_log.gif" />
+<img alt="pic3-2" src="_images/03-2.png" /></p>
+<p>Also you can select from the legend box which sensors to show / hide (one click) or isolate on the figure (2 clicks).
+<img alt="log" src="_images/02_section.gif" /></p>
+<p>Finally, each segment of the following circle chart represents the proportion of the total signal power that falls within each frequency range. How much does every frequency band contribute to the overall signal.</p>
+<p><img alt="pic4" src="_images/04.png" />
+<img alt="pic5" src="_images/05.png" /></p>
+</section>
+<section id="peak-to-peak-amplitude">
+<h3>Peak to Peak Amplitude<a class="headerlink" href="#peak-to-peak-amplitude" title="Link to this heading">#</a></h3>
+<p>Peak-to-Peak (PtP) amplitude refers to the difference between the highest positive peak and the lowest negative peak. It provides a measue of the total range of variation of the data averaged over a time interval (Gapontseva, 2023).</p>
+<p><img alt="pic1" src="_images/012" /></p>
+<p>The PtP amplitude of the data over the entire time series represents how the PtP amplitude of every sensor varies over the entire time series. Every dot represent the PtP amplitude of a single sensor. If a sensor falls outside of the whiskers area, it might indicate that the sensor is malfunctioning or other issues.</p>
+<p>The position in the Y Axis is not meaningful but serves visualization purposes.</p>
+<p><img alt="pic2" src="_images/02" /></p>
+<p>In this plot, each box plot represents a specific sensor (color-coded by areas) and each point the PtP Amplitude for that sensor during a specific epoch (time window).</p>
+<p><img alt="pic3" src="_images/032" /></p>
+<p>In this plot, each box plot represents an epoch and each point the PtP Ampltiude of the sensors during that specific time window.</p>
+</section>
+<section id="ecg-heart-beat-interference">
+<h3>ECG: heart beat interference<a class="headerlink" href="#ecg-heart-beat-interference" title="Link to this heading">#</a></h3>
+<p>Heartbeat interference is a common source of noise in MEG recordings. This intereference shows up as a rhythmic and periodic fluctuation, and it varies among participants (Gapontseva, 2023).</p>
+<p><img alt="pic1" src="_images/011.png" /></p>
+<p>First, we have a short overview with key criteria about the ECG signal recorded. MEGqc evaluates whther the heartbeats were recordnd in a consistently (similar amplitude), without missing beats (no breaks) and without false detections (no bursts). These aspects are relevant for determining if the channel issuitable heartbeat artifact identification.</p>
+<p><img alt="pic2" src="_images/022.png" /></p>
+<p>Here, we see the ECG signal (blue line) captured by the ECG channel (<em>ECG062</em>), with the red marking the R-peaks of each heartbeat. The R-peaks are components of the electrical activity of the heartbeat, and they can be easily used as reference points to identify heartbeat intereference.
+THanks to the interactive features, you can activate or deactivate the ECG signal and the peaks by clicking on the legend. YOu may alzo  zoom in by selecting a section within the figure.</p>
+<p><img alt="gif1" src="_images/01_selection_zoom.gif" /></p>
+<p>The mean recorded R wave (from the ECG channel, real heartbeats) was shifted to align the <em>ECG signal found on MEG channels</em>. This alignment helps us understand the extend to which the hearbeats influence he MEG channels. Then, a Pearson correlation is performed between the <em>ECG signal found in each MEG channel</em> and the reference mean signal of the ECG.</p>
+<p><img alt="pic3" src="_images/03.png" /></p>
+<p>The following 3 plots highlights the MEG channels affected by heartbeat interference. Each line representes one MEG sensor, colour-coded by region. The plots are ordered from the most affected to the least affected.</p>
+<p><img alt="pic4" src="_images/041.png" />
+<img alt="pic5" src="_images/051.png" />
+<img alt="pic6" src="_images/06.png" /></p>
+<p>The interactive feature allows you to hide (1 click) and isolate (2 clicks) specific groups of sensors, as well as zoom-in on certai sections of the figure.</p>
+<p><img alt="gif2" src="_images/02_hide.gif" /></p>
+</section>
+<section id="eog-eye-movement-interference">
+<h3>EOG: eye movement interference<a class="headerlink" href="#eog-eye-movement-interference" title="Link to this heading">#</a></h3>
+<p>The EOG (Electrooculogram) sensor records eye activity and is used to detect eye movements, which are usually separated into saccades and blinks. The MNE algorithms, however, only identify blinks (Gapontseva, 2023).</p>
+<p><img alt="pic2" src="_images/021" />
+This plot shows the EOG signal over time (blue line). Each blink produces a peak, marked by a red dot. An averaged eye-blink event is expected to have a wave-like shape with one main crest. If no such shape is detected in most of the data files in a set, the EOG channel is marked as “bad”.</p>
+<p><img alt="pic3" src="_images/033" /></p>
+<p>This plot represents the mean event shape, which indicates the typical waveform of a blink as captured by the EOG channel. This allows us to understand how blinks influence MEG sensors.</p>
+<p>Similar to the ECG report, the following three plots show the MEG channels affected by blink artifacts, ranked from the most affected to the least affected. This help us to identify channels that may require artifact correction before analysis.</p>
+<p><img alt="pic4" src="_images/041" />
+<img alt="pic5" src="_images/051" />
+<img alt="pic6" src="_images/06" /></p>
+</section>
+<section id="high-frequency-muscle-artifacts">
+<h3>High frequency (Muscle) artifacts<a class="headerlink" href="#high-frequency-muscle-artifacts" title="Link to this heading">#</a></h3>
+<p>Muslce contractions generate electrical activity noticeable in the range of 110-140 Hz (as suggested by MNE). Examples include clenching the jaw, swallowing or twitching cranial muscles (Gapontseva, 2023).</p>
+<p>This report includes a single plot displaying the z-scores of high frequency (blue line) and events (red-dots) where the z-score exceed the threshold of 5 (default in settings)</p>
+<p><img alt="pic2" src="_images/022" /></p>
+</section>
+<section id="estimation-of-subjet-s-head-movement">
+<h3>Estimation of subjet’s head movement<a class="headerlink" href="#estimation-of-subjet-s-head-movement" title="Link to this heading">#</a></h3>
+<p>These movements may appear as sudden shifts or jumps in the MEG data, causing distortions in the spatial distribution of the recorded magnetic fields. The effects of head movements can vary depending on the strength and direction Gapontseva, 2023).
+This module is implemented but requires a substantial amount of information to perform the calculation.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to MEGqc</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="guide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Practical Guide to MEGqc</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-information">Raw Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensor-positions">Sensor Positions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metrics">Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-of-the-data">Standard deviation of the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-over-the-entire-time-series">1. Standard Deviation over the entire time series</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-over-sensors">2. standard Deviation over Sensors</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-over-epochs">3. Standard Deviation over Epochs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-spectrum-density">Power Spectrum Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-to-peak-amplitude">Peak to Peak Amplitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecg-heart-beat-interference">ECG: heart beat interference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eog-eye-movement-interference">EOG: eye movement interference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-frequency-muscle-artifacts">High frequency (Muscle) artifacts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimation-of-subjet-s-head-movement">Estimation of subjet’s head movement</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alexis Olguin Baxman, Aaron Reer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

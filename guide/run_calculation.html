@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Running MEGqc &#8212; MEGqc tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guide/run_calculation';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running the plotting module" href="run_plotting.html" />
+    <link rel="prev" title="How to download a dataset from OpenNeuro" href="dataset.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/MEGqc.png" class="logo__image only-light" alt="MEGqc tutorial - Home"/>
+    <img src="../_static/MEGqc.png" class="logo__image only-dark pst-js-only" alt="MEGqc tutorial - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to MEGqc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../metrics.html">MEGqc report overview</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../guide.html">Practical Guide to MEGqc</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installation of MEGqc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset.html">How to download a dataset from OpenNeuro</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Running MEGqc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run_plotting.html">Running the plotting module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../details.html">Pipeline basics</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/AaronReer/docker_workshop_setup" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/AaronReer/docker_workshop_setup/edit/main/workshop/guide/run_calculation.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/AaronReer/docker_workshop_setup/issues/new?title=Issue%20on%20page%20%2Fguide/run_calculation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/guide/run_calculation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Running MEGqc</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-calculation-module">Running the calculation module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">Settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-settings">Default settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customized-settings">Customized Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#already-used-config-files">Already used config files?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section">Next section</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="running-megqc">
+<h1>Running MEGqc<a class="headerlink" href="#running-megqc" title="Link to this heading">#</a></h1>
+<section id="running-the-calculation-module">
+<h2>Running the calculation module<a class="headerlink" href="#running-the-calculation-module" title="Link to this heading">#</a></h2>
+<p>Now, we’re ready to run MEGqc! First, ensure that your environment is activated by checking the terminal prompt. It should look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    (&lt;your_environment_name&gt;) user_name: ~$
+</pre></div>
+</div>
+<p>Once the environment is activated, execute the script from the <strong>terminal</strong> and not from the command panel. The command requires 2 inputs:</p>
+<ol class="arabic simple">
+<li><p><strong>inputdata:</strong> path to the root of your BIDS MEG dataset.</p></li>
+<li><p><strong>subs:</strong> ID code to the subject you want to analyze:
+- If you want more than one subject, the ID codes should be separated by a space.
+- If you want to analyze all the subjects of your dataset, you may write <code class="docutils literal notranslate"><span class="pre">all</span></code>.</p></li>
+</ol>
+<p>YOur command line might look something like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    run-megqc --inputdata &lt;/path/to/your/dataset/&gt; --subs &lt;ID&gt;
+</pre></div>
+</div>
+<p>For example, if you want to analyze only subject <code class="docutils literal notranslate"><span class="pre">009</span></code> of the dataset <code class="docutils literal notranslate"><span class="pre">ds003483</span></code>, the command line might look like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    run-megqc --inputdata /path/to/ds003483/ --subs 009
+</pre></div>
+</div>
+</section>
+<section id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Link to this heading">#</a></h2>
+<section id="default-settings">
+<h3>Default settings<a class="headerlink" href="#default-settings" title="Link to this heading">#</a></h3>
+<p>When you enter the command, a terminal-based GUI will prompt you with the question: <code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">proceed</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">default</span> <span class="pre">settings?</span> <span class="pre">(y/n)</span></code>. A hyperlink in the terminal will direct you to the <a class="reference internal" href="../settings_explanation.html"><span class="std std-doc">setting explanation page</span></a>, where each parameter is described with more detail.</p>
+<p>If you enter <strong>y</strong>, the program will use the default values for the parameters of each <strong>metric</strong>. The default settings, as calculated by Gaponsetva (2023), are designed to be compatible with a broad variety of datasets.</p>
+</section>
+<section id="customized-settings">
+<h3>Customized Settings<a class="headerlink" href="#customized-settings" title="Link to this heading">#</a></h3>
+<p>If you enter <code class="docutils literal notranslate"><span class="pre">n</span></code>, you will be instructed to use the following command LINE to specify a path to your <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">directory</span></code> where a copy of the config file (<code class="docutils literal notranslate"><span class="pre">setting.ini</span></code>) will be created:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    get-megqc-config --target_directory &lt;path/to/your/target/directory&gt;
+</pre></div>
+</div>
+<p>Then you can open your copy of <code class="docutils literal notranslate"><span class="pre">settings.ini</span></code> and adjust the settings.</p>
+<ul class="simple">
+<li><p>For instance, if you want to skip a specific metric, locate the section <code class="docutils literal notranslate"><span class="pre">For</span> <span class="pre">which</span> <span class="pre">metrics</span> <span class="pre">to</span> <span class="pre">run</span> <span class="pre">the</span> <span class="pre">pipleline?</span></code> at the  begining of the file and change the value from <code class="docutils literal notranslate"><span class="pre">True</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>Once your config file is customized, you can run MEGqc including the option –config and the path to your customized <strong>config file</strong>. Make sure to include <em>“settings.ini”</em> in the command line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    run-megqc --inputdata &lt;/path/to/your/dataset/&gt; --subs 009 --config &lt;/path/to/your/config/file/setting.ini&gt;
+</pre></div>
+</div>
+</section>
+<section id="already-used-config-files">
+<h3>Already used config files?<a class="headerlink" href="#already-used-config-files" title="Link to this heading">#</a></h3>
+<p>If you have already processed the dataset, MEGqc will be able to find the already used config file(s) and will prompt you if <code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">any</span> <span class="pre">of</span> <span class="pre">them</span> <span class="pre">again?</span></code>.
+A <strong>numbered list</strong> of paths to previous config file will be displayed in ther terminal.
+Then it will ask you to <code class="docutils literal notranslate"><span class="pre">Enter</span> <span class="pre">the</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">config</span> <span class="pre">file</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">use,</span> <span class="pre">or</span> <span class="pre">press</span> <span class="pre">Enter</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">the</span> <span class="pre">default</span> <span class="pre">one</span></code>. Enter the corresponding <strong>number</strong> of the config file path you want to reuse.
+If you don’t want to use any previous config file, just press Enter to continue with your default setting or customized config file.</p>
+</section>
+</section>
+<section id="next-section">
+<h2>Next section<a class="headerlink" href="#next-section" title="Link to this heading">#</a></h2>
+<p>With the calculation module successfully executed, let’s explore how to generate the HTML report!</p>
+<!--
+OLD VERSION
+
+## Setting File Paths
+
+Within the `docker` folder of the cloned repository, you'll find the script **run_megqc.py**. To configure the software, you need to edit 2 filepaths of this script:
+1. **config_file_path=** here you'll need to write the path to the **settings.ini_**.
+
+2. **internal_config_file_path=** here you'll need to write the path to the **settings_internal.ini**.
+
+Both setting files are located in  the `settings` folder within the `meg_qc` package, which reside in the `site-packages` directory of yourPython  environment. The path should look something like this:
+
+        /path/to/environment/lib/python3./site-packages/meg_qc/settings/settings.ini
+
+<br>
+
+
+## Specifying Dataset Path and Subjects
+
+Next open the file **setttings.ini** to edit the data directory path and specify the subjects to be analyzed:
+
+- **subjects=** is a string variable, you shall write the code of the participant you want to analyze (f.e., 009). You can also provide a list of subjects separated by a comma (001, 002, 003) or write "all" to process all subjects.
+
+- **data_directory=** SEt this to the path to the dataset directory. In case that you want to analyze more subject, the pipeline will find them within the dataset thanks to the ancpBIDS library. 
+
+The file **setttings.ini** also contains an extensive amount of customizable parameters. However, the default values are optimized to to work with the majority of datasets. [In the next section you can find  more details about these parameters](settings_explanations.md).
+
+-->
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dataset.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">How to download a dataset from OpenNeuro</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="run_plotting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Running the plotting module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-calculation-module">Running the calculation module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings">Settings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-settings">Default settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customized-settings">Customized Settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#already-used-config-files">Already used config files?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-section">Next section</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alexis Olguin Baxman, Aaron Reer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
